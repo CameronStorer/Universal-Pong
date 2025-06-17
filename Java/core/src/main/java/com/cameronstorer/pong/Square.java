@@ -1,5 +1,7 @@
 package com.cameronstorer.pong;
 
+import com.badlogic.gdx.utils.Null;
+
 // declare the Square class
 public class Square {
     
@@ -8,10 +10,11 @@ public class Square {
     private int y;
     private int width;
     private int height;
-    private int color;
+    private String color;
+    private int velocityX, velocityY = 0;
 
     // constructor
-    public Square(int x, int y, int width, int height, int color){
+    public Square(int x, int y, int width, int height, String color){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -25,7 +28,7 @@ public class Square {
         this.y = 0;
         this.width = 10;
         this.height = 10;
-        this.color = 0;
+        this.color = "red";
     }
 
     // methods
@@ -36,7 +39,7 @@ public class Square {
     // Getters and setters
     // x position
     public int getX() {
-        return x;
+        return this.x;
     }
     public void setX(int newX) {
         if (newX > 0){
@@ -45,7 +48,7 @@ public class Square {
     }
     // y position
     public int getY() {
-        return y;
+        return this.y;
     }
     public void setY(int newY) {
         if (newY > 0){
@@ -54,7 +57,7 @@ public class Square {
     }
     // width
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     public void setWidth(int newWidth) {
@@ -62,13 +65,38 @@ public class Square {
             this.width = newWidth;
         }
     }
-    // color
-    public int getColor() {
-        return color;
+    // height
+    public int getHeight() {
+        return this.height;
     }
-    public void setColor(int newColor) {
-        if (newColor > 0){
-            this.color = newColor;
+    public void setHeight(int newHeight) {
+        if (newHeight > 0){
+            this.height = newHeight;
+        }
+    }
+    // color
+    public String getColor() {
+        return this.color;
+    }
+    public void setColor(String newColor) {
+        this.color = newColor;
+    }
+    // velocity in x direction
+    public int getVelocityX() {
+        return this.velocityX;
+    }
+    public void setVelocityX(int newVelocityX) {
+        if (newVelocityX > 0){
+            this.velocityX = newVelocityX;
+        }
+    }
+    // velocity in y direction
+    public int getVelocityY() {
+        return this.velocityY;
+    }
+    public void setVelocityY(int newVelocityY) {
+        if (newVelocityY > 0){
+            this.velocityY = newVelocityY;
         }
     }
 }

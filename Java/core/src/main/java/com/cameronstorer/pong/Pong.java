@@ -21,10 +21,16 @@ public class Pong extends ApplicationAdapter {
 
     // the game variables
     private int [] score = {0,0}; //score
-    private int ballVelocityX, ballVelocityY = 2; //ball velocity
     private int cooldownTime = 0; // default time variable for cooldown
     private int opponentSpeed = 4; // the opposing paddles movements speed
 
+    // initialize the game objects
+    // create the first paddle
+    Square opponent = new Square(50, 40, 10, 60, "red");
+    // create the ball
+    Square ball = new Square(250, 50, 12, 12, "white");
+    // create the second paddle
+    Square player = new Square(450, 40, 10, 60, "blue");
 
     // called once upon application creation to 
     // initialize the game's objects
@@ -35,10 +41,9 @@ public class Pong extends ApplicationAdapter {
 
        // set the game window size
        Gdx.graphics.setWindowedMode(SCREENWIDTH, SCREENHEIGHT);
-
-       // a debug test
-       Square test = new Square(10, 10, 10, 10, 10);
-       test.debug("hi");
+    
+        // give the ball its initial velocties
+        ball.setVelocityX(2); ball.setVelocityY(2);
     }
 
     // called repeatedly many times a second (every frame)
@@ -46,7 +51,15 @@ public class Pong extends ApplicationAdapter {
     // object movement, collision, and input is drawn
     @Override
     public void render() {
-        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
+
+        // get the time that has passed since the last frame
+        float deltaTime = Gdx.graphics.getDeltaTime();
+
+        // the game's logic
+        // handle player input
+        if (Gdx.input.isKeyJustPressed(com.badlogic.gdx.Input.Keys.DOWN)) {
+            player 
+        }
 
     }
 
