@@ -1,0 +1,110 @@
+C# Practice
+
+using System;
+
+public class test{
+    public static void Main(string [] args){
+        Console.WriteLine("Inside the function!");
+        /*test1.printStatement();
+        test1.forLoopTest(2, "hi", .2); 
+        string [] arrayTest = test1.arrays(1, 2, "hi", .2);
+        test1.multiplicationTable(10, 10);
+        Console.WriteLine(test1.Or(false, false));
+        test1.testLambda();
+        test1.userInput();*/
+        test2.switchCaseTest();
+        //int test = test2.syntaxing();
+    }
+}
+public class test1 {
+    // print
+    public static void printStatement(){
+        Console.WriteLine("Inside the inside function!");
+    }
+    // for loop
+    public static void forLoopTest(int a, string b, double c){
+        for (int i = 0; i < 3; i++){
+            a += i;
+            b += i;
+            c += i;
+        }
+        Console.WriteLine($"variables: \n {a}, \t {b}, \t {c}");
+        return;
+    }
+    // arrays and outputs
+    public static string[] arrays(int a, int b, string c, double d){
+        string [] hi = {"hi"};
+        hi = new string[5];
+        for (int i = 0; i < hi.Length; i ++){
+            hi[i] = "yes";
+        }        
+        hi [0] = "test";
+        //hi = new string [] {"bye", "get"};
+        foreach (var item in hi){
+            Console.WriteLine(item.ToString());
+        }
+        return hi;
+    }
+    // multiplication table
+    public static void multiplicationTable(int a, int b){
+        for (int i = 1; i <= a; i++){
+            for (int j = 1; j <= b; j++){
+                Console.WriteLine($"{i} x {j} = {i*j}");
+            }
+        }
+    }
+    // testing pattern matching
+    public static bool Or(bool first, bool second) => (first, second) switch {
+        (true, true) => true,
+        (true, false) => true,
+        (false, true) => true,
+        (false, false) => false,
+    };
+    // lambda
+    public static void testLambda (){
+        Func<int, int, int> add = (a, b) => a + b;
+        Console.WriteLine(add(10, 30));
+    }
+    // user input
+    public static void userInput(){
+        Console.WriteLine("How old are you?");
+        int age = Convert.ToInt32(Console.ReadLine()); // if you want int, you must convert string to int
+        Console.WriteLine(age+1);
+    }
+    
+}
+public class test2 {
+    // switch and case test
+    public static void switchCaseTest(){
+        Console.WriteLine("What number day of the week is it?");
+        int day = Convert.ToInt32(Console.ReadLine());
+        
+    }
+    public static int syntaxing(){
+        try{
+            Console.WriteLine("What number day of the week is it?");
+            int day = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("That is an acceptable input!");
+            return day;
+        } catch {
+            Console.WriteLine("please only give an integer");
+            int day = syntaxing();
+            return day;
+        }
+    }
+    
+    // dictionary
+    // try except (syntaxing)
+    // namespace
+    // recurrsion
+    // super class
+    // List<>
+    // var -> from, in, where, select
+    // async, <int>, await, byte
+    // foreach
+    // yield
+    // while
+    // libraries
+    // bubblesort
+    // IEnumerable<>
+}
