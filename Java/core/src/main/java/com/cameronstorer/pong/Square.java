@@ -10,16 +10,14 @@ public class Square {
     private int y;
     private int width;
     private int height;
-    private String color;
     private int velocityX, velocityY = 0;
 
     // constructor
-    public Square(int x, int y, int width, int height, String color){
+    public Square(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.color = color;
     }
 
     // no-argument constructor
@@ -28,7 +26,6 @@ public class Square {
         this.y = 0;
         this.width = 10;
         this.height = 10;
-        this.color = "red";
     }
 
     // methods
@@ -42,7 +39,7 @@ public class Square {
         return this.x;
     }
     public void setX(int newX) {
-        if (newX > 0){
+        if (newX > 0 && newX < (500 - this.width)){
             this.x = newX;
         }
     }
@@ -51,7 +48,7 @@ public class Square {
         return this.y;
     }
     public void setY(int newY) {
-        if (newY > 0){
+        if (newY > 0 && newY < (350 - this.height)){
             this.y = newY;
         }
     }
@@ -74,29 +71,18 @@ public class Square {
             this.height = newHeight;
         }
     }
-    // color
-    public String getColor() {
-        return this.color;
-    }
-    public void setColor(String newColor) {
-        this.color = newColor;
-    }
     // velocity in x direction
     public int getVelocityX() {
         return this.velocityX;
     }
     public void setVelocityX(int newVelocityX) {
-        if (newVelocityX > 0){
-            this.velocityX = newVelocityX;
-        }
+        this.velocityX = newVelocityX;
     }
     // velocity in y direction
     public int getVelocityY() {
         return this.velocityY;
     }
     public void setVelocityY(int newVelocityY) {
-        if (newVelocityY > 0){
-            this.velocityY = newVelocityY;
-        }
+        this.velocityY = newVelocityY;
     }
 }
