@@ -1,6 +1,6 @@
 package com.cameronstorer.pong;
 
-import com.badlogic.gdx.utils.Null;
+import com.badlogic.gdx.math.Rectangle;
 
 // declare the Square class
 public class Square {
@@ -33,6 +33,12 @@ public class Square {
         System.out.println("this is a test:" + a);
     }
 
+    // method to return a Rectangle representation for collision detection
+    public Rectangle getBounds() {
+        // return a Rectangle object with the correct stats
+        return new Rectangle(this.x, this.y, this.width, this.height);
+    }
+
     // Getters and setters
     // x position
     public int getX() {
@@ -48,7 +54,7 @@ public class Square {
         return this.y;
     }
     public void setY(int newY) {
-        if (newY > 0 && newY < (350 - this.height)){
+        if (newY > -5 && newY < 355 - this.height){
             this.y = newY;
         }
     }

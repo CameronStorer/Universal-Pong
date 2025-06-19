@@ -3,14 +3,13 @@ package com.cameronstorer.pong;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
-public class Pong extends ApplicationAdapter {
+public class Main extends ApplicationAdapter {
 
 
     // the game constants
@@ -21,7 +20,7 @@ public class Pong extends ApplicationAdapter {
 
     // the game variables
     private int [] score = {0,0}; //score
-    private int cooldownTime = 0; // default time variable for cooldown
+    private float cooldownTime = 0; // default time variable for cooldown
     private int playerAdvantage = 0; // the difference in scores
 
     // declare the game objects
@@ -29,6 +28,9 @@ public class Pong extends ApplicationAdapter {
     private Square ball; // create the ball
     private Square player; // create the second paddle
     private ShapeRenderer shapeRenderer; // game rendering tool used to draw shapes
+    SpriteBatch batch; // declare a new SpriteBatch
+    BitmapFont font; // declare a new BitmapFont
+
 
     // called once upon application creation to 
     // initialize the game's objects
@@ -36,6 +38,12 @@ public class Pong extends ApplicationAdapter {
     public void create() {
        // initialize the shapeRenderer
        shapeRenderer = new ShapeRenderer(); 
+       // initialize the batch
+       batch = new SpriteBatch();
+       // initialize the font
+       font = new BitmapFont();
+       // set the font color
+       font.setColor(Color.WHITE);
 
         // initialize the game objects
         // create the first paddle
@@ -73,22 +81,38 @@ public class Pong extends ApplicationAdapter {
 
             // get the time that has passed since the last frame
             float deltaTime = Gdx.graphics.getDeltaTime();
+            cooldownTime += deltaTime;
 
             // update the ball's state
             ball.setX(ball.getX() + ball.getVelocityX());
             ball.setY(ball.getY() + ball.getVelocityY());
 
             // if the ball hits a vertical wall
-            if ((ball.getY() < 3) || (ball.getY() > 335)){
+            if ((ball.getY() < ball.getHeight()/2) || (ball.getY() > 345 - (ball.getHeight()))){
                 ball.setVelocityY(ball.getVelocityY() * -1);
                 System.out.println("stop");
             }
             System.out.println(ball.getY());
+            System.out.println(ball.getVelocityY() + "Y");
 
-            // if ball hits a paddle
-            // add collision detection?
-            // way of obtaining current time?
-            // way of rendering text?
+            // if ball hits a paddle (Collision detection)
+            if (Intersector.overlaps(ball.getBounds(), player.getBounds())
+            || Intersector.overlaps(ball.getBounds(), opponent.getBounds())){
+                if (cooldownTime > 0.3){
+                    cooldownTime = 0;
+                    if (ball.getVelocityX() > 0){
+                        ball.setVelocityX(ball.getVelocityX() + 1);
+                    } else {
+                        ball.setVelocityX(ball.getVelocityX() - 1);
+                    }
+                    if (ball.getVelocityY() > 0){
+                        ball.setVelocityY(ball.getVelocityY() + 1);
+                    } else {
+                        ball.setVelocityY(ball.getVelocityY() - 1);
+                    }
+                    ball.setVelocityX(ball.getVelocityX() * -1);
+                }
+            }
 
             // ball velocity safety net
             if (ball.getVelocityX() >= 21){         // if the ball moves to fast
@@ -146,6 +170,9 @@ public class Pong extends ApplicationAdapter {
                         opponent.setVelocityX(opponent.getVelocityX() - 1);
                     }
                 }
+
+
+
                 // reset the ball's position
                 ball.setX(250 - ball.getWidth());
                 ball.setY(175 - ball.getHeight());
@@ -167,6 +194,11 @@ public class Pong extends ApplicationAdapter {
             Gdx.gl.glClearColor(0, 0, 0, 1); // Black in RGBA
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+            // Display the score
+            batch.begin();
+            font.draw(batch, score[0] + " ," + score[1], 240, 340);
+            batch.end();
+
             // Draw the shapes
             shapeRenderer.begin(ShapeRenderer.ShapeType.Filled); // so that the shapes are filled
             // Draw the ball
@@ -180,9 +212,6 @@ public class Pong extends ApplicationAdapter {
             shapeRenderer.rect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
             shapeRenderer.end(); // stop drawing
         }
-
-
-
     }
 
     // called at the end of the program (when it is destroyed)
@@ -190,9 +219,9 @@ public class Pong extends ApplicationAdapter {
     // (e.g. textures and sounds)
     @Override
     public void dispose() {
-        // dispose of the shape renderer
-        if (shapeRenderer != null){ // ensure the shapeRenderer object exists
+        // dispose of the objects
             shapeRenderer.dispose();
-        }
+            batch.dispose();
+            font.dispose();
     }
 }
