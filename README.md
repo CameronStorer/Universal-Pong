@@ -32,7 +32,7 @@ This section outlines the specific technologies and libraries used for each lang
 
 **Directory:** `java/`
 
-**Description:** The Java version of Pong is built using LibGDX, a powerful and versatile cross-platform game development framework. This allows for a robust and performant game that can potentially run on desktop, Android, iOS, and web platforms.
+**Description:** The Java version of Pong is built using **LibGDX**, a powerful and versatile cross-platform game development framework. This allows for a robust and performant game that can potentially run on desktop, Android, iOS, and web platforms.
 
 **Key Technologies:**
 
@@ -78,7 +78,7 @@ Instructions on how to set up and run each language's version of Pong.
 ### Python
 
 1.  **Navigate:** Change directory to `python/`.
-2.  **Install Dependencies:** `pip install -r requirements.txt` (if a `requirements.txt` file exists). **Make sure Pygame is listed in your `requirements.txt` or install it directly via `pip install pygame`.**
+2.  **Install Dependencies:** `pip install -r requirements.txt`
 3.  **Run:** `python main.py` (or the name of your main game file).
 
 ### JavaScript
@@ -105,4 +105,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or inquiries, please open an issue in this repository or contact [Your Name/Email/GitHub Profile Link].
+For any questions or inquiries, please open an issue in this repository or contact [contact@cameronstorer.com].
