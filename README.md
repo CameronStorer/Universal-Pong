@@ -105,4 +105,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or inquiries, please open an issue in this repository or contact [contact@cameronstorer.com].
+For any questions or inquiries, please open an issue in this repository or contact [contact@cameronstorer.com](contact@cameronstorer.com).
