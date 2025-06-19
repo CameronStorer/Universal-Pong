@@ -32,20 +32,19 @@ This section outlines the specific technologies and libraries used for each lang
 
 **Directory:** `java/`
 
-**Description:** The Java version of Pong aims to be a robust and performant desktop application. It leverages standard Java AWT/Swing for graphics or potentially a more modern library like JavaFX.
+**Description:** The Java version of Pong is built using LibGDX, a powerful and versatile cross-platform game development framework. This allows for a robust and performant game that can potentially run on desktop, Android, iOS, and web platforms.
 
 **Key Technologies:**
 
 * **Java Development Kit (JDK):** Version 17+ recommended.
-* **AWT/Swing:** For basic graphics and event handling (initial implementation).
-* **Maven/Gradle:** For build automation and dependency management. (To be implemented for larger projects)
-* **(Optional) JavaFX:** For more modern UI capabilities (future consideration).
+* **LibGDX:** A cross-platform game development framework providing functionalities for graphics, audio, input, and more.
+* **Gradle:** For build automation and dependency management, which is the standard build tool for LibGDX projects.
 
 ### Python Implementation
 
 **Directory:** `python/`
 
-**Description:** The Python implementation focuses on simplicity and rapid development, utilizing popular game development libraries available in the Python ecosystem.
+**Description:** The Python implementation focuses on simplicity and rapid development, utilizing the **Pygame** library. Pygame provides a comprehensive set of modules for handling graphics, sound, input, and other essential game development functionalities, making it ideal for creating 2D games like Pong.
 
 **Key Technologies:**
 
@@ -74,13 +73,12 @@ Instructions on how to set up and run each language's version of Pong.
 ### Java
 
 1.  **Navigate:** Change directory to `java/`.
-2.  **Compile:** If using standard Java compilation: `javac -d out src/main/java/com/universalpong/*.java` (adjust path as needed). If using Maven/Gradle, follow their respective build commands.
-3.  **Run:** `java -cp out com.universalpong.PongGame` (adjust package and main class as needed).
+2.  **Build with Gradle:** If you have Gradle installed, run `./gradlew desktop:run` (on Linux/macOS) or `gradlew.bat desktop:run` (on Windows) to build and run the desktop version. If you are using an IDE like IntelliJ IDEA or Eclipse, you can import the Gradle project and run it from there.
 
 ### Python
 
 1.  **Navigate:** Change directory to `python/`.
-2.  **Install Dependencies:** `pip install -r requirements.txt` (if a `requirements.txt` file exists).
+2.  **Install Dependencies:** `pip install -r requirements.txt` (if a `requirements.txt` file exists). **Make sure Pygame is listed in your `requirements.txt` or install it directly via `pip install pygame`.**
 3.  **Run:** `python main.py` (or the name of your main game file).
 
 ### JavaScript
