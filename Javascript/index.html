@@ -1,0 +1,45 @@
+<!-- basic html boilerplate -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pong</title>
+    <!-- inline styling -->
+    <style>
+        body {
+            margin: 0;
+            background: rgb(40, 40, 40);
+        }
+        .container {
+            position: relative;
+        }
+        h1 {
+            position: absolute;
+            color: white;
+            width: 100%;
+            font-family: arial;
+            font-weight: normal;
+            text-align: center;
+            z-index: 10;
+        }
+        canvas {
+            position: absolute;
+            background: black;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <!-- holding container -->
+    <div class="container">
+        <!-- game score -->
+        <h1 id="score">0, 0</h1>
+        <!-- create canvas and assign id -->
+        <canvas id="gameCanvas" width="500" height="350"></canvas>
+    </div>
+    <!-- execute the referenced javascript file -->
+    <script src="main.js"></script>
+</body>
+</html>

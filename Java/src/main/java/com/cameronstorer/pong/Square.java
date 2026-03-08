@@ -11,6 +11,7 @@ public class Square {
     private int width;
     private int height;
     private int velocityX, velocityY = 0;
+    private int type;
 
     // constructor
     public Square(int x, int y, int width, int height){
@@ -18,6 +19,7 @@ public class Square {
         this.y = y;
         this.width = width;
         this.height = height;
+        this.type = 0;
     }
 
     // no-argument constructor
@@ -26,11 +28,7 @@ public class Square {
         this.y = 0;
         this.width = 10;
         this.height = 10;
-    }
-
-    // methods
-    public void debug(String a){
-        System.out.println("this is a test:" + a);
+        this.type = 0;
     }
 
     // method to return a Rectangle representation for collision detection
@@ -54,8 +52,14 @@ public class Square {
         return this.y;
     }
     public void setY(int newY) {
-        if (newY > -5 && newY < 355 - this.height){
+        if (newY > 0 && newY < (350 - this.height)){
             this.y = newY;
+        } else if (this.type == 1){
+            if (newY <= 0){
+                this.setVelocityY(this.getVelocityY() * -1);
+            } else if (newY >= 350 - this.height){
+                this.setVelocityY(this.getVelocityY() * -1);
+            }
         }
     }
     // width
@@ -90,5 +94,9 @@ public class Square {
     }
     public void setVelocityY(int newVelocityY) {
         this.velocityY = newVelocityY;
+    }
+    // set type
+    public void setType(int newType) {
+        this.type = newType;
     }
 }

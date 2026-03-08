@@ -51,6 +51,7 @@ public class Main extends ApplicationAdapter {
         opponent.setVelocityY(4); // the opposing paddle's default movement speed
         // create the ball
         ball = new Square(250, 50, 12, 12);
+        ball.setType(1);
         // create the second paddle
         player = new Square(450, 40, 10, 60);
 
@@ -90,10 +91,7 @@ public class Main extends ApplicationAdapter {
             // if the ball hits a vertical wall
             if ((ball.getY() < ball.getHeight()/2) || (ball.getY() > 345 - (ball.getHeight()))){
                 ball.setVelocityY(ball.getVelocityY() * -1);
-                System.out.println("stop");
             }
-            System.out.println(ball.getY());
-            System.out.println(ball.getVelocityY() + "Y");
 
             // if ball hits a paddle (Collision detection)
             if (Intersector.overlaps(ball.getBounds(), player.getBounds())
@@ -115,7 +113,7 @@ public class Main extends ApplicationAdapter {
             }
 
             // ball velocity safety net
-            if (ball.getVelocityX() >= 21){         // if the ball moves to fast
+            if (ball.getVelocityX() >= 21){     // if the ball moves to fast
                 ball.setVelocityX(20);
             }
             else if (ball.getVelocityX() <= -21){
@@ -127,7 +125,7 @@ public class Main extends ApplicationAdapter {
             else if (ball.getVelocityY() <= -21){
                 ball.setVelocityY(-20);
             }
-            if (ball.getVelocityX() < 2 && ball.getVelocityX() > -2){   // if the ball moves to slow
+            if (ball.getVelocityX() < 2 && ball.getVelocityX() > -2){   // if the ball moves too slow
                 if (ball.getVelocityX() > 0){
                     ball.setVelocityX(2);
                 }
@@ -196,7 +194,7 @@ public class Main extends ApplicationAdapter {
 
             // Display the score
             batch.begin();
-            font.draw(batch, score[0] + " ," + score[1], 240, 340);
+            font.draw(batch, score[0] + ", " + score[1], 240, 340);
             batch.end();
 
             // Draw the shapes

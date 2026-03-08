@@ -27,7 +27,7 @@ This section outlines the specific technologies and libraries used for each lang
 
 **Directory:** `java/`
 
-**Description:** The Java version of Pong is built using **LibGDX**, a powerful and versatile cross-platform game development framework. This allows for a robust and performant game that can potentially run on desktop, Android, iOS, and web platforms.
+**Description:** The Java version of Pong is built using **LibGDX**, a powerful and versatile cross-platform game development framework. This allows for a robust and performant game built to run on desktop platforms.
 
 **Key Technologies:**
 
