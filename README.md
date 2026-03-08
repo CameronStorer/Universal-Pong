@@ -7,6 +7,7 @@
 - [Technologies Used](#technologies-used)
   - [Java Implementation](#java-implementation)
   - [Python Implementation](#python-implementation)
+  - [Javascript Implementation](#javascript-implementation)
 - [How to Run](#how-to-run)
 - [License](#license)
 - [Contact](#contact)
@@ -25,7 +26,7 @@ This section outlines the specific technologies and libraries used for each lang
 
 ### Java Implementation
 
-**Directory:** `java/`
+**Directory:** `Java/`
 
 **Description:** The Java version of Pong is built using **LibGDX**, a powerful and versatile cross-platform game development framework. This allows for a robust and performant game built to run on desktop platforms.
 
@@ -37,7 +38,7 @@ This section outlines the specific technologies and libraries used for each lang
 
 ### Python Implementation
 
-**Directory:** `python/`
+**Directory:** `Python/`
 
 **Description:** The Python implementation focuses on simplicity, utilizing the **Pygame** library. Pygame provides a comprehensive set of modules for handling graphics, sound, input, and other essential game development functionalities, making it ideal for creating 2D games like Pong.
 
@@ -46,9 +47,22 @@ This section outlines the specific technologies and libraries used for each lang
 * **Python:** Version 3.8+ recommended.
 * **Pygame:** A set of Python modules designed for writing video games, providing robust functionalities for graphics, sound, and input handling.
 
+### JavaScript Implementation
+
+**Directory:** `JavaScript/`
+
+**Description:** The JavaScript implementation is syntactically/logically very similar to the java implementation, with the appropriate work-arounds to compensate for missing libraries and for HTML web page integration.
+
+**Key Technologies:**
+
+* **HTML** (Hyper-Text Markup Language) Frontend display.
+* **JavaScript:** Backend script logic.
+
 ## How to Run
 
 Instructions on how to set up and run each language's version of Pong are included in respective README.md files found in each implementation's folder.
+
+Controls: Up Arrow Key -> player moves up; Down Arrow Key -> player moves down
 
 ## License
 
