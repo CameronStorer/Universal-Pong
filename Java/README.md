@@ -1,8 +1,18 @@
-# Pong
+# Java Pong
+A simple implementation of the classic arcade game Pong written in Java.
 
-To run this java application on a Windows, Linux, or Mac computer, run this command from the current directory:
-./gradle run
+## Requirements
+You must have a Java installation on your system.
 
-During the execution of this command, gradle may be installed on your system as all of the dependencies are downloaded.
+Recommended: Java JDK 17 or newer
 
-Once all requirements are fufilled, the game window will open to display a live, interactable session of classic arcade game Pong.
+The project uses the Gradle Wrapper, so you do not need to install Gradle manually.
+
+## Instructions
+To run this Java application, open a terminal in the project directory and run:
+```./gradlew run```
+
+## Notice
+The first time you run the command, Gradle may download and install the required dependencies automatically.
+
+Once all requirements are fulfilled, the game window will open and display a live, interactive session of the classic arcade game Pong.
